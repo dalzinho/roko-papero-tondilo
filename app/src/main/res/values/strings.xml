@@ -3,4 +3,5 @@
     <string name="rock_button">rock</string>
     <string name="paper_button">Paper</string>
     <string name="scissors_button">Scissors</string>
+    <string name="outcome_activity_label">The result is in...</string>
 </resources>

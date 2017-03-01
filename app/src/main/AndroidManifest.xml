@@ -11,8 +11,15 @@
         <activity android:name=".SelectMove">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".outcomeActivity"
+            android:label="@string/outcome_activity_label"
+            android:parentActivityName=".SelectMove">
         </activity>
     </application>
 
