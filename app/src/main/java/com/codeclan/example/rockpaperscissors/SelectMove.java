@@ -27,19 +27,30 @@ public class SelectMove extends AppCompatActivity {
 
     public void handleClick(View button) {
         String outcome = null;
+        String player_choice = null;
+
         switch (button.getId()) {
             case R.id.rock_button:
                 outcome = game.playerPicksRock();
+                player_choice = "Rock";
                 break;
             case R.id.paper_button:
                 outcome = game.playerPicksPaper();
+                player_choice = "Paper";
                 break;
             case R.id.scissors_button:
                 outcome = game.playerPicksScissors();
+                player_choice = "Scissors";
                 break;
         }
 
-        Intent intent = new Intent(this, outcomeActivity.class);
+        if(game.getHumanWin()){
+            KeepCountOfScore.incrementHumanScore(this);
+        }
+
+        Intent intent = new Intent(this, OutcomeActivity.class);
+        intent.putExtra("player_choice", player_choice);
+        intent.putExtra("computer_choice", game.getComputerChoice());
         intent.putExtra("game_outcome", outcome);
 
         startActivity(intent);

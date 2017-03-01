@@ -11,19 +11,45 @@ import static com.codeclan.example.rockpaperscissors.MoveSet.*;
 public class Game {
 
     private MoveSet[] options;
+    private String computerChoice;
+    boolean humanWin;
+    boolean computerWin;
 
     public Game(){
         options = new MoveSet[3];
         options[0] = ROCK;
         options[1] = PAPER;
         options[2] = SCISSORS;
+        humanWin = false;
+        computerWin = false;
+    }
+
+    public boolean getHumanWin() {
+        return humanWin;
+    }
+
+    public String getComputerChoice() {
+        return computerChoice;
     }
 
     public MoveSet computerPicksRandom(){
         Random rand = new Random();
         int computerRand = rand.nextInt(options.length);
+        MoveSet comp = options[computerRand];
 
-        return options[computerRand];
+        switch (comp){
+            case ROCK:
+                this.computerChoice = "Rock";
+                break;
+            case PAPER:
+                this.computerChoice = "Paper";
+                break;
+            case SCISSORS:
+                this.computerChoice = "Scissors";
+                break;
+        }
+
+        return comp;
     }
 
     public String playerPicksRock(){
@@ -36,9 +62,11 @@ public class Game {
                 break;
             case PAPER:
                 result = "Your rock is enveloped by my leaf of paper. I smirk at you, for you have lost.";
+                computerWin = true;
                 break;
             case SCISSORS:
                 result = "Your rock blunts my scissors sending sparks a-flying in the process! You win this time!";
+                humanWin = true;
                 break;
         }
 
@@ -52,12 +80,14 @@ public class Game {
         switch(computer){
             case ROCK:
                 result = "Your paper wraps my rock with an air of smug self satisfaction! You bask in the glory of victory! QAPLA!!";
+                humanWin = true;
                 break;
             case PAPER:
                 result = "Both of our pieces of paper sneer at each other to little avail. DRAW!";
                 break;
             case SCISSORS:
                 result = "With a casual snip, my scissors cut your paper. Better luck next time, monkey brain!";
+                computerWin = true;
                 break;
         }
 
@@ -71,15 +101,16 @@ public class Game {
         switch(computer){
             case ROCK:
                 result = "My rock blunts your scissors sending sparks a-flying! You hang your head, dejected in defeat!";
+                computerWin = true;
                 break;
             case PAPER:
                 result = "With a casual snip, your scissors cut my paper. You have prevailed!";
+                humanWin = true;
                 break;
             case SCISSORS:
                 result = "Lacking a suitable way to interface with each other, our scissors have little effect upon one another. DRAW!";
                 break;
         }
-
         return result;
     }
 }

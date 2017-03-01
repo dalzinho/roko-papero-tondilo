@@ -8,19 +8,28 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SelectMove">
+
+        <activity
+            android:name=".SelectMove"
+            android:label="Your move, creep."
+            android:parentActivityName=".RulesActivity">
+        </activity>
+
+        <activity
+            android:name=".OutcomeActivity"
+            android:label="@string/outcome_activity_label"
+            android:parentActivityName=".SelectMove">
+        </activity>
+
+        <activity
+            android:name=".RulesActivity"
+            android:label="Rock, Paper, Scissors">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
-        <activity
-            android:name=".outcomeActivity"
-            android:label="@string/outcome_activity_label"
-            android:parentActivityName=".SelectMove">
-        </activity>
     </application>
 
 </manifest>

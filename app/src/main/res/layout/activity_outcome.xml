@@ -12,10 +12,38 @@
     tools:context="com.codeclan.example.rockpaperscissors.outcomeActivity">
 
     <TextView
+        android:id="@+id/outcome_player_choice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="40sp"
+        android:paddingBottom="25dp"
+        />
+
+    <TextView
+        android:id="@+id/outcome_computer_choice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="40sp"
+        android:paddingBottom="25dp"
+
+        />
+
+    <TextView
         android:id="@+id/outcome_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="40sp"
+        android:paddingTop="25dp"
+
+        />
+
+    <TextView
+        android:id="@+id/running_score"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="40sp"
+        android:paddingTop="25dp"
+
         />
 
 </LinearLayout>
