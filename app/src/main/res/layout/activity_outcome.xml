@@ -9,13 +9,13 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:orientation="vertical"
-    tools:context="com.codeclan.example.rockpaperscissors.outcomeActivity">
+    tools:context="com.codeclan.example.rockpaperscissors.OutcomeActivity">
 
     <TextView
         android:id="@+id/outcome_player_choice"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="40sp"
+        android:textSize="20sp"
         android:paddingBottom="25dp"
         />
 
@@ -23,7 +23,7 @@
         android:id="@+id/outcome_computer_choice"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="40sp"
+        android:textSize="20sp"
         android:paddingBottom="25dp"
 
         />
@@ -32,16 +32,25 @@
         android:id="@+id/outcome_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="40sp"
+        android:textSize="20sp"
         android:paddingTop="25dp"
 
         />
 
     <TextView
-        android:id="@+id/running_score"
+        android:id="@+id/human_running_score"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="40sp"
+        android:textSize="20sp"
+        android:paddingTop="25dp"
+
+        />
+
+    <TextView
+        android:id="@+id/cpu_running_score"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
         android:paddingTop="25dp"
 
         />

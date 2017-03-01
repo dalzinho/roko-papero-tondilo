@@ -12,8 +12,8 @@ public class Game {
 
     private MoveSet[] options;
     private String computerChoice;
-    boolean humanWin;
-    boolean computerWin;
+    private boolean humanWin;
+    private boolean cpuWin;
 
     public Game(){
         options = new MoveSet[3];
@@ -21,16 +21,29 @@ public class Game {
         options[1] = PAPER;
         options[2] = SCISSORS;
         humanWin = false;
-        computerWin = false;
+        cpuWin = false;
     }
 
+    //getters
     public boolean getHumanWin() {
         return humanWin;
+    }
+
+    public boolean getCpuWin() {
+        return cpuWin;
     }
 
     public String getComputerChoice() {
         return computerChoice;
     }
+
+    //setters
+    public void setWinStatusesToFalse(){
+        this.humanWin = false;
+        this.cpuWin = false;
+    }
+
+    //game logic
 
     public MoveSet computerPicksRandom(){
         Random rand = new Random();
@@ -62,7 +75,7 @@ public class Game {
                 break;
             case PAPER:
                 result = "Your rock is enveloped by my leaf of paper. I smirk at you, for you have lost.";
-                computerWin = true;
+                cpuWin = true;
                 break;
             case SCISSORS:
                 result = "Your rock blunts my scissors sending sparks a-flying in the process! You win this time!";
@@ -87,7 +100,7 @@ public class Game {
                 break;
             case SCISSORS:
                 result = "With a casual snip, my scissors cut your paper. Better luck next time, monkey brain!";
-                computerWin = true;
+                cpuWin = true;
                 break;
         }
 
@@ -101,7 +114,7 @@ public class Game {
         switch(computer){
             case ROCK:
                 result = "My rock blunts your scissors sending sparks a-flying! You hang your head, dejected in defeat!";
-                computerWin = true;
+                cpuWin = true;
                 break;
             case PAPER:
                 result = "With a casual snip, your scissors cut my paper. You have prevailed!";
@@ -113,4 +126,6 @@ public class Game {
         }
         return result;
     }
+
+
 }

@@ -5,14 +5,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
 public class OutcomeActivity extends AppCompatActivity {
 
     TextView outcomeDescription;
     TextView playerChoice;
     TextView computerChoice;
-    TextView runningScore;
+    TextView humanRunningScore;
+    TextView cpuRunningScore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,7 +21,8 @@ public class OutcomeActivity extends AppCompatActivity {
         outcomeDescription = (TextView)findViewById(R.id.outcome_view);
         playerChoice = (TextView)findViewById(R.id.outcome_player_choice);
         computerChoice = (TextView)findViewById(R.id.outcome_computer_choice);
-        runningScore = (TextView)findViewById(R.id.running_score);
+        humanRunningScore = (TextView)findViewById(R.id.human_running_score);
+        cpuRunningScore = (TextView)findViewById(R.id.cpu_running_score);
 
         Intent intent = getIntent();
         Bundle extras = intent.getExtras();
@@ -30,10 +30,14 @@ public class OutcomeActivity extends AppCompatActivity {
         String player = extras.getString("player_choice");
         String computer = extras.getString("computer_choice");
         String humanScore = "Human: " + Integer.toString(KeepCountOfScore.getHumanScore(this)) + " wins.";
+        String cpuScore = "CPU: " + Integer.toString(KeepCountOfScore.getCPUScore(this)) + " wins.";
 
         playerChoice.setText("You chose " + player + "!");
         computerChoice.setText("I chose " + computer + "!");
         outcomeDescription.setText(the_result);
-        runningScore.setText(humanScore);
+        humanRunningScore.setText(humanScore);
+        cpuRunningScore.setText(cpuScore);
+
+
     }
 }

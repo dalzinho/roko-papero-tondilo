@@ -48,6 +48,12 @@ public class SelectMove extends AppCompatActivity {
             KeepCountOfScore.incrementHumanScore(this);
         }
 
+        if(game.getCpuWin()){
+            KeepCountOfScore.incrementCPUScore(this);
+        }
+
+        game.setWinStatusesToFalse();
+
         Intent intent = new Intent(this, OutcomeActivity.class);
         intent.putExtra("player_choice", player_choice);
         intent.putExtra("computer_choice", game.getComputerChoice());
