@@ -18,40 +18,29 @@ public class SelectMove extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_move);
 
-        rockButton = (Button)findViewById(R.id.rock_button);
-        paperButton = (Button)findViewById(R.id.paper_button);
-        scissorsButton = (Button)findViewById(R.id.scissors_button);
+        rockButton = (Button) findViewById(R.id.rock_button);
+        paperButton = (Button) findViewById(R.id.paper_button);
+        scissorsButton = (Button) findViewById(R.id.scissors_button);
 
         game = new Game();
     }
 
-    public void handleClick(View button){
-
-    }
-
-    public void playerPicksRock(View button){
-        String result = game.playerPicksRock();
-
-        Intent intent = new Intent(this, outcomeActivity.class);
-        intent.putExtra("game_outcome", result);
-
-        startActivity(intent);
-    }
-
-    public void playerPicksPaper(View button){
-        String result = game.playerPicksRock();
+    public void handleClick(View button) {
+        String outcome = null;
+        switch (button.getId()) {
+            case R.id.rock_button:
+                outcome = game.playerPicksRock();
+                break;
+            case R.id.paper_button:
+                outcome = game.playerPicksPaper();
+                break;
+            case R.id.scissors_button:
+                outcome = game.playerPicksScissors();
+                break;
+        }
 
         Intent intent = new Intent(this, outcomeActivity.class);
-        intent.putExtra("game_outcome", result);
-
-        startActivity(intent);
-    }
-
-    public void playerPicksRock(View button){
-        String result = game.playerPicksRock();
-
-        Intent intent = new Intent(this, outcomeActivity.class);
-        intent.putExtra("game_outcome", result);
+        intent.putExtra("game_outcome", outcome);
 
         startActivity(intent);
     }
