@@ -9,8 +9,10 @@ import android.preference.PreferenceManager;
 
 public class KeepCountOfScore {
 
-    private static final String PREF_HUMAN_SCORE = "0";
-    private static final String PREF_CPU_SCORE = "1";
+    private static final String PREF_HUMAN_SCORE = "human_Score";
+    private static final String PREF_CPU_SCORE = "cpu_score";
+
+
 
     public static int getHumanScore(Context context){
 
@@ -18,10 +20,10 @@ public class KeepCountOfScore {
                 .getInt(PREF_HUMAN_SCORE, 0);
     }
 
-    public static int getCPUScore(Context context){
-        return PreferenceManager.getDefaultSharedPreferences(context)
-                .getInt(PREF_CPU_SCORE, 0);
-    }
+        public static int getCPUScore(Context context){
+            return PreferenceManager.getDefaultSharedPreferences(context)
+                    .getInt(PREF_CPU_SCORE, 0);
+        }
 
     public static void incrementHumanScore(Context context){
         int humanScore = getHumanScore(context);
